@@ -1,8 +1,8 @@
 
 // const request = require('supertest');
 // const app = require('../lib/app');
-import getName from '../lib/rgbapp.js';
-import copyAndPush from '../lib/rgbapp.js';
+import getName, { copyAndPush } from '../lib/rgbapp.js';
+
 
 describe('rgrefactor routes', () => {
   //   beforeEach(() => {
@@ -26,7 +26,8 @@ describe('rgrefactor routes', () => {
 
   test('returns a new array with all the items in the original array and a new item pushed to the end.', () => {
     const numbers = [1, 2, 3];
-    copyAndPush(numbers, 4); // return [1, 2, 3, 4];
-
+    const actual = copyAndPush(numbers, 4); // return [1, 2, 3, 4];
+    expect(actual).toEqual([numbers, [1, 2, 3, 4]]);
   });
+
 });
